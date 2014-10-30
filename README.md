@@ -182,4 +182,6 @@ public class ClientServer implements Serializable {
 ~~~
 The `FsmFactory` will create a state chart, when written and visialized by graphviz and dot, will look like:
 (using `dot -Tsvg clientserver.dot > login.svg`)
+![Alt text](https://raw.githubusercontent.com/GraphWalker/graphwalker-labs/master/doc/img/clientServer.svg)
+<img src="https://raw.githubusercontent.com/GraphWalker/graphwalker-labs/master/doc/img/clientServer.svg">
 
