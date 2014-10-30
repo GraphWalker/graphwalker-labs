@@ -1,0 +1,66 @@
+package org.graphwalker.java.java2fsm;
+
+/*
+ * #%L
+ * GraphWalker Input/Output
+ * %%
+ * Copyright (C) 2011 - 2014 GraphWalker
+ * %%
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ * #L%
+ */
+
+import org.graphwalker.core.model.Edge;
+import org.graphwalker.core.model.Model;
+import org.graphwalker.core.model.Vertex;
+
+/**
+ * Created by krikar on 9/7/14.
+ */
+public class DotFileFactory {
+
+    /**
+     * Will create a DOT string using the model.
+     *
+     * @param model The graph to be DOT'ed
+     * @return
+     */
+    public static String createDot(Model model) {
+        StringBuilder str = new StringBuilder();
+        str.append("digraph dotFileFactory {" + System.lineSeparator());
+
+        for (Vertex vertex : model.getVertices()) {
+            str.append(vertex.getId());
+            str.append(" [label=\"");
+            str.append(vertex.getName());
+            str.append("\"];" + System.lineSeparator());
+        }
+
+        for (Edge edge : model.getEdges()) {
+            str.append(edge.getSourceVertex().getId());
+            str.append("->");
+            str.append(edge.getTargetVertex().getId());
+            str.append(" [label=\"");
+            str.append(edge.getName());
+            str.append("\"];" + System.lineSeparator());
+        }
+        str.append("}");
+        return str.toString();
+    }
+}
