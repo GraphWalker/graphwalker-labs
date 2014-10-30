@@ -1,5 +1,10 @@
 The `FsmFactory` is inspired by the NModel project from Microsoft Research, https://nmodel.codeplex.com/, which later developed into the SpecExplorer. `FsmFactory` does only one thing: It creates a finite state chart from a class using the `@Transition` annotaion.
 
+The concept is:
+* a class implements `Serializable`.
+* Annotates methods that represents transitions using the `@Transition`. A transition is when some state changes. Some properties are changing values.
+* In a stateful system, transitions are only allowed under certain circumstances. This is done by accompanying guard methods to the transition method. They share the same method name, except that the  guard has a the word `On` prefixed to the name.
+
 Consider following code: (See also book Model-based Software Testing and Analysis with C#, the example with Client and Server. http://www.cambridge.org/se/academic/subjects/computer-science/software-engineering-and-development/model-based-software-testing-and-analysis-c?format=PB)
 ~~~java
         FsmFactory factory = new FsmFactory();
