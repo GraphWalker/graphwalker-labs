@@ -1,4 +1,4 @@
-The `FsmFactory` is inspired by the NModel project from Microsoft Research, https://nmodel.codeplex.com/, which later developed into the SpecExplorer. `FsmFactory` does only one thing: It creates a finite state chart from a class using the `@Transition` annotaion.
+The `FsmFactory` is inspired by the NModel project from Microsoft Research, https://nmodel.codeplex.com/, which later developed into the SpecExplorer. `FsmFactory` does only one thing: It creates a finite state chart from a class using the `@Transition` annotation.
 
 The concept is:
 * a class implements `Serializable`.
